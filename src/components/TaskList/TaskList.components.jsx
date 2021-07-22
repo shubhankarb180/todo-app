@@ -9,7 +9,7 @@ const TaskList = () => {
             <div className="flex flex-wrap justify-center" id="tasklist">
                 {tasks.map((task) => {
                     return(
-                        <TaskBox task={task.content} key={task.id} taskID={task.id} completed={task.completed} className="p-2" />
+                        <TaskBox task={task.content} key={task.id} taskID={task.id} completed={task.completed} className="" />
                     );
                 })}
             </div>
