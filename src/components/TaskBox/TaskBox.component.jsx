@@ -15,7 +15,7 @@ const TaskBox = ({ task, taskID, completed }) => {
   const completeCheck = completed === true ? "completed" : "";
 
   return (
-    <div className="flex flex-col border-2 border-blue-900 bg-yellow-300 w-5/12 m-2 md:w-1/5 xl:w-1/12 justify-between hover:shadow-xl">
+    <div className="flex flex-col border-2 border-blue-900 bg-yellow-300 w-5/12 m-2 md:w-1/5 xl:w-1/6 2xl:w-1/12 justify-between hover:shadow-xl">
       <div className="flex justify-center w-full pb-1">
         <p className={`text-center ${completeCheck}`}>{task}</p>
       </div>
