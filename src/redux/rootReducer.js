@@ -1,4 +1,4 @@
-import { ADD_TASK, REMOVE_TASK, MARK_COMPLETED } from "./actionTypes";
+import { ADD_TASK, REMOVE_TASK, MARK_COMPLETED, UPDATE_TASK } from "./actionTypes";
 
 const initialState = {
     todos: [
@@ -88,6 +88,17 @@ export const rootReducer = (state = initialState, action) => {
                     return {...todo, completed : !todo.completed}
                 })
             };
+        case UPDATE_TASK: 
+            return {
+                ...state,
+                todos: state.todos.map(todo => {
+                    if(todo.id !== action.ID){
+                        return todo;
+                    }
+                    return {...todo, content : action.payload}
+                })
+            };
+        // Update percentage case to be created and similar changes to be made in the initial state mentioned in the beginning
         default:
             return state;
     }
