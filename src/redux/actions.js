@@ -15,10 +15,11 @@ export const mark_completed = (id) => ({
     payload : id
 }); 
 
-export const update_task = (id,task) => ({
+export const update_task = (id,task,percent) => ({
     type: UPDATE_TASK,
     payload : task,
-    ID : id
+    ID : id,
+    percentage : percent
 });
 
 //Create New Action for updated the percentage
