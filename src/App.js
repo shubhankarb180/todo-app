@@ -27,7 +27,7 @@ const App = () => {
             setTask("");
           }}
         >
-          <input type="text" className="px-1 py-0.5 mr-2 rounded-md hover:border-blue-600 focus:outline-none focus:border-transparent" onChange={handleTaskInput} value={task} />
+          <input type="text" className="px-1 py-0.5 mr-2 rounded-md hover:border-blue-600 focus:outline-none focus:border-transparent" onChange={handleTaskInput} value={task} maxLength="35" />
           <button
             type="submit"
             className={`bg-gray-600 text-white rounded-md text-sm px-2 py-1  xl:px-5 ${taskNullCheck}`}

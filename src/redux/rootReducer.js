@@ -1,61 +1,36 @@
-import { ADD_TASK, REMOVE_TASK, MARK_COMPLETED } from "./actionTypes";
+import { ADD_TASK, REMOVE_TASK, MARK_COMPLETED, UPDATE_TASK } from "./actionTypes";
 
 const initialState = {
     todos: [
         {
             "id": "abcd1",
-            "content": "Sample Task",
-            "completed": false
+            "content": "Clean Laundry",
+            "completed": false,
+            "percent" : "0"
         },
         {
             "id": "26c6",
-            "content": "New Task ",
-            "completed": false
+            "content": "Search for New Apartment",
+            "completed": false,
+            "percent" : "0"
         },
         {
             "id": "3e96",
-            "content": "Small Task for Update ",
-            "completed": false
+            "content": "Stop updates",
+            "completed": true,
+            "percent" : "0"
         },
         {
-            "id": "baec",
-            "content": "Checking the length of a long task to get started",
-            "completed": false
+            "id": "fd6f",
+            "content": "Read Newspaper",
+            "completed": false,
+            "percent" : "0"
         },
         {
-            "id": "31b6",
-            "content": "Adding more task ",
-            "completed": false
-        },
-        {
-            "id": "6874",
-            "content": "For the same witdth",
-            "completed": false
-        },
-        {
-            "id": "eea3",
-            "content": "To get the idea about the size and the grid formation ",
-            "completed": false
-        },
-        {
-            "id": "a396",
-            "content": "Clean laundry ",
-            "completed": false
-        },
-        {
-            "id": "86bf",
-            "content": "Kill Tutu ",
-            "completed": false
-        },
-        {
-            "id": "82c9",
-            "content": "Rahul wont be able to play pubg ",
-            "completed": false
-        },
-        {
-            "id": "8bbe",
-            "content": "Test",
-            "completed": false
+            "id": "lam7fr",
+            "content": "Find dumbledore",
+            "completed": true,
+            "percent" : "0"
         }
     ],
 };
@@ -86,6 +61,16 @@ export const rootReducer = (state = initialState, action) => {
                         return todo;
                     }
                     return {...todo, completed : !todo.completed}
+                })
+            };
+        case UPDATE_TASK: 
+            return {
+                ...state,
+                todos: state.todos.map(todo => {
+                    if(todo.id !== action.ID){
+                        return todo;
+                    }
+                    return {...todo, content : action.payload, percent : action.percentage}
                 })
             };
         default:
