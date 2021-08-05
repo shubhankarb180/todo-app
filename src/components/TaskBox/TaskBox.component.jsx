@@ -5,13 +5,6 @@ import "../../index.css";
 
 const TaskBox = ({ task, taskID, completed }) => {
   const dispatch = useDispatch();
-  // const todos = useSelector((state) => state.todos);
-  // const completed = todos.map((todo) => {
-  //   if(todo.id === taskID){
-  //     return todo.completed;
-  //   }
-  //   return false;
-  // });
   const completeCheck = completed === true ? "completed" : "";
 
   return (

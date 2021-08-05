@@ -5,13 +5,13 @@ const initialState = {
         {
             "id": "abcd1",
             "content": "Clean Laundry",
-            "completed": false,
+            "completed": true,
             "percent" : "0"
         },
         {
             "id": "26c6",
             "content": "Search for New Apartment",
-            "completed": false,
+            "completed": true,
             "percent" : "0"
         },
         {
@@ -23,7 +23,7 @@ const initialState = {
         {
             "id": "fd6f",
             "content": "Read Newspaper",
-            "completed": false,
+            "completed": true,
             "percent" : "0"
         },
         {

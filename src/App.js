@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import TaskList from "./components/TaskList/TaskList.components";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add_task } from "./redux/actions";
+import TaskList from "./components/TaskList/TaskList.components";
+import EmptyTaskList from "./components/TaskList/EmptyTaskList.component";
 
 const App = () => {
   const [task, setTask] = useState("");
-  // const [taskList, setTaskList] = useState(["Task 1"]);
   const dispatch = useDispatch();
   const taskNullCheck = task === "" ? "!hover:cursor-not-allowed" : "hover:bg-blue-400";
+
+  const todos = useSelector((state) => state.todos);
+  const pending = todos.filter(item => item.completed === false);
+  const completed = todos.filter(item=> item.completed === true);
 
   const handleTaskInput = (e) => {
     e.preventDefault();
@@ -37,7 +41,8 @@ const App = () => {
           </button>
         </form>
       </div>
-      <TaskList />
+      { pending.length === 0 ? <EmptyTaskList title="pending" listHeader="Todos" /> : <TaskList listHeader="Todos" tasks={pending} /> }
+      { completed.length === 0 ? <EmptyTaskList title="completed" listHeader="Completed" /> : <TaskList listHeader="Completed" tasks={completed} />}
     </div>
   );
 };
