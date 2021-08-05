@@ -8,7 +8,7 @@ const EmptyTaskList = ({ title,listHeader }) => {
         className="flex flex-wrap justify-start lg:ml-24 lg:py-2 ml-4 py-1"
         id="tasklist"
       >
-          <p>- No {title} tasks available</p>
+          <p className="italic">- No {title} tasks available</p>
       </div>
     </div>
   );
